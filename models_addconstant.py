@@ -97,7 +97,7 @@ def model():
     # Dense1_output = Reshape(target_shape=(1,10))(Dense1_output)
     # Dense2 = Concatenate(axis=-1)([Dense1_output, knn_tensor_input])
     # print(Dense2)
-    pred = Dense(units=1, name='Dense_2')(Dense2_output)
+    pred = Dense(units=1, name='Dense_3')(Dense2_output)
 
     # input = Concatenate(axis=1)(input_1+input_2+input_3)
 

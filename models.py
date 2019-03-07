@@ -81,7 +81,7 @@ def model():
     # Dense2 = Concatenate(axis=-1)([Dense1_output, knn_tensor_input])
     # print(Dense2)
     Dense2_output = Dense(units=5,name='Dense_2')(Dense1_output)
-    pred = Dense(units=1, name='Dense_2')(Dense2_output)
+    pred = Dense(units=1, name='Dense_3')(Dense2_output)
 
     # input = Concatenate(axis=1)(input_1+input_2+input_3)
 
