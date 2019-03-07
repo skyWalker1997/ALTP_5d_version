@@ -25,7 +25,7 @@ def model():
     conv1 = Concatenate(axis=-1)([conv_1[i] for i in range(0, 5)])
     # After concatenate = (1,5,4)(batch,time,feature)
     lstm1 = LSTM(5, input_shape=(5, 5), return_sequences=True, name='att_lstm_day_1')(conv1)
-    # After LSTM shape = (1,5,4)(batch,time,feature)
+    # After ALTP_5d_version shape = (1,5,4)(batch,time,feature)
 
     # day2
     input_2 = [Input(shape=(3, 3, 5), name='input_day_2_{0}'.format(i)) for i in range(0, 5)]
@@ -41,7 +41,7 @@ def model():
     conv2 = Concatenate(axis=-1)([conv_2[i] for i in range(0, 5)])
     # After concatenate = (1,5,4)(batch,time,feature)
     lstm2 = LSTM(5, input_shape=(5, 5), return_sequences=True, name='att_lstm_day_2')(conv2)
-    # After LSTM shape = (1,5,4)(batch,time,feature)
+    # After ALTP_5d_version shape = (1,5,4)(batch,time,feature)
 
     # day3
     input_3 = [Input(shape=(3, 3, 5), name='input_day_3_{0}'.format(i)) for i in range(0, 5)]
@@ -63,7 +63,7 @@ def model():
     # knn_tensor_input = Input(shape=(1,1),name='knn')
 
 
-    # After LSTM shape = (1,5,4)(batch,time,feature)
+    # After ALTP_5d_version shape = (1,5,4)(batch,time,feature)
 
     att_lstm1 = attention.Attention(method='cba',name='Attention1')([lstm1, lstm3])
     att_lstm1 = Reshape(target_shape=(1, 5))(att_lstm1)
@@ -80,7 +80,8 @@ def model():
     # Dense1_output = Reshape(target_shape=(1,10))(Dense1_output)
     # Dense2 = Concatenate(axis=-1)([Dense1_output, knn_tensor_input])
     # print(Dense2)
-    pred = Dense(units=1, name='Dense_2')(Dense1_output)
+    Dense2_output = Dense(units=5,name='Dense_2')(Dense1_output)
+    pred = Dense(units=1, name='Dense_2')(Dense2_output)
 
     # input = Concatenate(axis=1)(input_1+input_2+input_3)
 

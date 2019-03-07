@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn import preprocessing
 
-np_path = '/Users/PINKFLOYD/Desktop/graduatedesign/LSTM/Data/'
+np_path = '/Users/PINKFLOYD/Desktop/graduatedesign/ALTP_5d_version/Data/'
 
 
 def get_np():

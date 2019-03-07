@@ -5,8 +5,8 @@ import json as json
 import numpy as np
 import operator
 
-P_file = '/Users/PINKFLOYD/Desktop/graduatedesign/LSTM/Data/origin_data/P_volume_data/'
-Out_file = '/Users/PINKFLOYD/Desktop/graduatedesign/LSTM/Data/'
+P_file = '/Users/PINKFLOYD/Desktop/graduatedesign/ALTP_5d_version/Data/origin_data/P_volume_data/'
+Out_file = '/Users/PINKFLOYD/Desktop/graduatedesign/ALTP_5d_version/Data/'
 
 
 date_list = ['0416','0417','0418','0419','0420']

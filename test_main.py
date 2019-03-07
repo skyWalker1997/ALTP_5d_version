@@ -7,7 +7,7 @@ import knn_new
 
 
 
-model_path = '/Users/PINKFLOYD/Desktop/graduatedesign/LSTM/model/'
+model_path = '/Users/PINKFLOYD/Desktop/graduatedesign/ALTP_5d_version/model/'
 
 
 def test_weight():

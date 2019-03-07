@@ -15,13 +15,13 @@ import models
 #             new_train_x.append(train_x[i][j])
 #         train_x_re.append(new_train_x)
 #     return train_x_re
-model_path = '/Users/PINKFLOYD/Desktop/graduatedesign/LSTM/model/'
+model_path = '/Users/PINKFLOYD/Desktop/graduatedesign/ALTP_5d_version/model/'
 
 def normal_run():
     day_0_c0, day_0_c1, day_0_c2, day_0_c3, day_0_c4, day_1_c0, day_1_c1, day_1_c2, \
     day_1_c3, day_1_c4, day_2_c0, day_2_c1, day_2_c2, day_2_c3, day_2_c4, y = data_loader.train_data()
 
-    Knn = np.load('/Users/PINKFLOYD/Desktop/graduatedesign/LSTM/Data/knn.npy')
+    Knn = np.load('/Users/PINKFLOYD/Desktop/graduatedesign/ALTP_5d_version/Data/knn.npy')
     Knn_train = data_loader.knn_train_data(Knn)
     print(Knn_train)
     # train_x = data_reforme(train_x)
@@ -55,7 +55,7 @@ def eval_model():
         day_0_c0, day_0_c1, day_0_c2, day_0_c3, day_0_c4, day_1_c0, day_1_c1, day_1_c2, \
         day_1_c3, day_1_c4, day_2_c0, day_2_c1, day_2_c2, day_2_c3, day_2_c4, y = data_loader.train_data()
 
-        Knn = np.load('/Users/PINKFLOYD/Desktop/graduatedesign/LSTM/Data/knn.npy')
+        Knn = np.load('/Users/PINKFLOYD/Desktop/graduatedesign/ALTP_5d_version/Data/knn.npy')
         Knn_train = data_loader.knn_train_data(Knn)
         # print(Knn_train)
         # train_x = data_reforme(train_x)
@@ -88,7 +88,7 @@ def eval_model():
             temp_result_list.append(np.abs(pred[l] - y[l])/np.abs(y[l]))
         temp_result = knn_new.list_sum(temp_result_list) / len(temp_result_list)
         eval_list.append(temp_result)
-        print(eval_list)
+        print(temp_result)
     eval_result = knn_new.list_sum(eval_list) / len(eval_list)
     print(eval_result)
 

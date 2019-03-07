@@ -7,8 +7,8 @@ import operator
 
 from sklearn import preprocessing
 
-P_file = '/Users/PINKFLOYD/Desktop/graduatedesign/LSTM/Data/origin_data/P_volume_data/'
-Out_file = '/Users/PINKFLOYD/Desktop/graduatedesign/LSTM/Data/'
+P_file = '/Users/PINKFLOYD/Desktop/graduatedesign/ALTP_5d_version/Data/origin_data/P_volume_data/'
+Out_file = '/Users/PINKFLOYD/Desktop/graduatedesign/ALTP_5d_version/Data/'
 
 
 date_list = ['0416','0417','0418','0419','0420','0421','0422','0423','0424','0425']
