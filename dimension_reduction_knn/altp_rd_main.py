@@ -1,9 +1,9 @@
 
 from keras.callbacks import ReduceLROnPlateau
 import numpy as np
-import data_loader
-import models_addconstant
-import knn_new
+from dimension_reduction_knn import data_loader
+from dimension_reduction_knn import models_addknn_reduce_dimension
+from dimension_reduction_knn import knn_new
 
 
 
@@ -21,7 +21,7 @@ def test_weight():
             Knn = knn_new.loop_weight(0.5)
             Knn_train = data_loader.knn_train_data(Knn)
             # train_x = data_reforme(train_x)
-            model = models_addconstant.model()
+            model = models_addknn_reduce_dimension.model()
             reduce_lr = ReduceLROnPlateau(monitor='val_loss', patience=10, mode='auto')
             # print(model)
 
@@ -59,7 +59,7 @@ def one_test():
         Knn = knn_new.loop_weight(0.5)
         Knn_train = data_loader.knn_train_data(Knn)
         # train_x = data_reforme(train_x)
-        model = models_addconstant.model()
+        model = models_addknn_reduce_dimension.model()
         reduce_lr = ReduceLROnPlateau(monitor='val_loss', patience=10, mode='auto')
         # print(model)
 

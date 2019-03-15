@@ -1,8 +1,8 @@
 from keras.callbacks import ReduceLROnPlateau
 import numpy as np
-import data_loader
-import knn_new
-import models
+from five_d_version import data_loader
+from five_d_version import knn_new
+from five_d_version import models
 
 
 # def data_reforme(train_x):
@@ -34,7 +34,6 @@ def normal_run():
         model.fit(x=[day_0_c0, day_0_c1, day_0_c2, day_0_c3, day_0_c4, day_1_c0,
                      day_1_c1, day_1_c2, day_1_c3, day_1_c4, day_2_c0, day_2_c1, day_2_c2, day_2_c3, day_2_c4], y=[y],
                   batch_size=3, epochs=100, verbose=2)  # ,callbacks=[reduce_lr]
-    from keras.models import save_model
     # save_model(model, 'model.h5')
     model.save_weights('model.h5')
     # print(model.summary())
@@ -68,7 +67,6 @@ def eval_model():
             model.fit(x=[day_0_c0, day_0_c1, day_0_c2, day_0_c3, day_0_c4, day_1_c0,
                          day_1_c1, day_1_c2, day_1_c3, day_1_c4, day_2_c0, day_2_c1, day_2_c2, day_2_c3, day_2_c4],
                       y=[y], batch_size=3, epochs=100, verbose=0)  # ,callbacks=[reduce_lr]
-        from keras.models import save_model
         # save_model(model, 'model.h5')
         model.save_weights('model.h5')
         # print(model.summary())

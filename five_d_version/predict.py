@@ -1,8 +1,4 @@
-from keras.callbacks import ReduceLROnPlateau
-import numpy as np
-import keras as keras
 import data_loader
-from keras.models import load_model
 # import  keras.models.load_model
 from models import model
 

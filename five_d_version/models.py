@@ -1,12 +1,6 @@
 import keras as keras
-import numpy as np
-import tensorflow as tf
 import attention
-from keras.layers import Conv2D,Input,LSTM,Reshape,Concatenate,Dense,Activation,Flatten
-from keras.models import Model
-from keras import backend as K
-
-
+from keras.layers import Conv2D,Input,LSTM,Reshape,Concatenate,Dense
 
 
 def model():
@@ -65,9 +59,9 @@ def model():
 
     # After ALTP_5d_version shape = (1,5,4)(batch,time,feature)
 
-    att_lstm1 = attention.Attention(method='cba',name='Attention1')([lstm1, lstm3])
+    att_lstm1 = attention.Attention(method='cba', name='Attention1')([lstm1, lstm3])
     att_lstm1 = Reshape(target_shape=(1, 5))(att_lstm1)
-    att_lstm2 = attention.Attention(method='cba',name='Attention2')([lstm2, lstm3])
+    att_lstm2 = attention.Attention(method='cba', name='Attention2')([lstm2, lstm3])
     att_lstm2 = Reshape(target_shape=(1, 5))(att_lstm2)
     att_lstm = Concatenate(axis=1)([att_lstm1, att_lstm2])
 
@@ -76,7 +70,7 @@ def model():
 
     # att_high_level  = Reshape(target_shape=(1,4))(att_high_level)
     all_lstm = Concatenate(axis=1)([att_high_level, lstm3])
-    Dense1_output = Dense(units=10, name='Dense_1')(all_lstm)
+    Dense1_output = Dense(units=5, name='Dense_1')(all_lstm)
     # Dense1_output = Reshape(target_shape=(1,10))(Dense1_output)
     # Dense2 = Concatenate(axis=-1)([Dense1_output, knn_tensor_input])
     # print(Dense2)
